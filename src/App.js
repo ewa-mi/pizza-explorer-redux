@@ -5,7 +5,7 @@ import AddPizzaForm from "./components/AddPizzaForm.js";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <PizzaList />
       <AddPizzaForm />
     </div>

@@ -1,6 +1,7 @@
 const initialState = {
   user: {
     name: "Helva",
+    favorites: [161235],
   },
   pizzas: [
     {
@@ -30,7 +31,6 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "ADD_PIZZA": {
-      // => Ask yourself: what is action.payload?
       return {
         ...state,
         pizzas: [
@@ -42,6 +42,23 @@ export default function reducer(state = initialState, action) {
             bought: 0,
           },
         ],
+      };
+    }
+    case "TOGGLE_FAVORITE_PIZZA": {
+      const id = action.payload;
+      let favorites = state.user.favorites.slice();
+      if (favorites.includes(id)) {
+        favorites.splice(favorites.indexOf(id), 1);
+      } else {
+        favorites.push(id);
+      }
+
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          favorites,
+        },
       };
     }
     default: {

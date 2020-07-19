@@ -70,7 +70,7 @@ export default function PizzaList() {
                 {/* NO SELECTOR OPTION */}
                 {/* {user.favorites.includes(pizza.id) ? "♥" : "♡"} */}
                 <button className="favButton" onClick={toggle}>
-                  {user.favorites.includes(pizza.id) ? "♥" : "♡"}
+                  {user.favorites.includes(pizza.id) ? "💜" : "♡"}
                 </button>
               </strong>
               <div>

@@ -1,11 +1,14 @@
 .singlePizza {
   padding: 30px;
   width: 450px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 5px;
 }
 
 .pizzaImg {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   max-width: 100%;
 }
 
@@ -23,4 +26,9 @@
 .pizzasArea {
   display: flex;
   flex-wrap: wrap;
+}
+
+.descr {
+  background-color: rgb(240, 227, 228);
+  padding: 10px;
 }

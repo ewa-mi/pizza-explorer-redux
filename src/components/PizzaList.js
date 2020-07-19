@@ -70,8 +70,8 @@ export default function PizzaList() {
               <div>
                 <img src={`${pizza.image}`} alt="pizza" className="pizzaImg" />
               </div>
-              <li>{pizza.description}</li>
-              <li>{pizza.bought} times bought</li>
+              <p className="descr">{pizza.description}</p>
+              <p>{pizza.bought} times bought</p>
             </div>
           );
         })}

@@ -12,6 +12,7 @@ const initialState = {
       bought: 5,
       image:
         "https://imgp2.schaer.com/sites/default/files/styles/header/public/2017-09/HeaderProducts_Pizza%20Margherita.jpg?itok=Fz-7_a56",
+      ingredients: ["tomatoes", "mozzarella", "basil", "oil"],
     },
     {
       id: 67283,
@@ -21,6 +22,7 @@ const initialState = {
       bought: 2,
       image:
         "https://uncutrecipes.com/Images-Recipes-Italian/Pizza-alla-Napoletana-with-Mozzarella-Cheese.jpg",
+      ingredients: ["tomatoes", "mozzarella", "oil"],
     },
     {
       id: 357311,
@@ -30,6 +32,7 @@ const initialState = {
       bought: 10,
       image:
         "https://img.static-rmg.be/a/food/image/q100/w480/h360/1087722/pizza-bianca-met-artisjok-en-mortadella.jpg",
+      ingredients: ["ricotta", "mozzarella", "garlic"],
     },
   ],
 };

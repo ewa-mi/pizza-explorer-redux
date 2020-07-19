@@ -77,6 +77,9 @@ export default function PizzaList() {
                 <img src={`${pizza.image}`} alt="pizza" className="pizzaImg" />
               </div>
               <p className="descr">{pizza.description}</p>
+              <p>
+                <strong>Ingredients:</strong> {pizza.ingredients.join(", ")}
+              </p>
               <p>{pizza.bought} times bought</p>
             </div>
           );

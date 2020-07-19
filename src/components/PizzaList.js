@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Filters from "./Filters";
 import "./PizzaList.css";
 
 const selectUser = (reduxState) => {
@@ -40,6 +41,29 @@ export default function PizzaList() {
   const pizzas = useSelector(selectPizzas);
   // const fav = useSelector(selectFavorites);
 
+  const [filters, set_filters] = useState([]);
+  const [newPizzas, setNewPizzas] = useState([]);
+
+  let newPizzasArray = [];
+
+  useEffect(() => {
+    if (filters.length) {
+      newPizzasArray = pizzas.filter((pizza) => {
+        let result = true;
+        for (let index = 0; index < filters.length; index++) {
+          if (!pizza.ingredients.includes(filters[index])) {
+            result = false;
+          }
+        }
+        return result;
+      });
+    } else {
+      newPizzasArray = pizzas;
+    }
+
+    setNewPizzas(newPizzasArray);
+  }, [filters]);
+
   return (
     <div>
       <div className="header">
@@ -51,9 +75,10 @@ export default function PizzaList() {
             Welcome back, <strong>{user.name}</strong>! Your favorite pizzas:
           </p>
         </div>
+        <Filters filters={filters} set_filters={set_filters} />
       </div>
       <ul className="pizzasArea">
-        {pizzas.map((pizza) => {
+        {newPizzas?.map((pizza) => {
           const toggle = () => {
             dispatch({
               type: "TOGGLE_FAVORITE_PIZZA",

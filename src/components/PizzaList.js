@@ -78,7 +78,7 @@ export default function PizzaList() {
         <Filters filters={filters} set_filters={set_filters} />
       </div>
       <ul className="pizzasArea">
-        {newPizzas?.map((pizza) => {
+        {newPizzas.map((pizza) => {
           const toggle = () => {
             dispatch({
               type: "TOGGLE_FAVORITE_PIZZA",
@@ -110,7 +110,7 @@ export default function PizzaList() {
           );
         })}
       </ul>
-      <p>Number of pizzas: {numberOfPizzas}</p>
+      <p>Number of pizzas: {newPizzas.length || numberOfPizzas}</p>
     </div>
   );
 }

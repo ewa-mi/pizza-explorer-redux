@@ -16,11 +16,29 @@ const selectPizzas = (reduxState) => {
   });
 };
 
+const selectFavorites = (reduxState) => {
+  return reduxState.user.favorites;
+};
+
+// const selectPizzas = (reduxState) => {
+//   return reduxState.pizzas;
+// };
+
+// const selectMostBoughtPizza = (reduxState) => {
+//   if (reduxState.pizzas.length === 0) {
+//     return null;
+//   }
+//   return reduxState.pizzas.reduce((mostBought, nextPizza) => {
+//     return mostBought.bought >= nextPizza.bought ? mostBought : nextPizza;
+//   });
+// };
+
 export default function PizzaList() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const numberOfPizzas = useSelector(selectNumberOfPizzas);
   const pizzas = useSelector(selectPizzas);
+  // const fav = useSelector(selectFavorites);
 
   return (
     <div>
@@ -28,7 +46,7 @@ export default function PizzaList() {
       <p>
         Welcome back, <strong>{user.name}</strong>! Your favorite pizzas:
       </p>
-      <ul>
+      <ul className="pizzasArea">
         {pizzas.map((pizza) => {
           const toggle = () => {
             dispatch({
@@ -37,13 +55,23 @@ export default function PizzaList() {
             });
           };
           return (
-            <div className="singlePizza">
-              <strong>{pizza.name}</strong>
+            <div key={pizza.id} className="singlePizza">
+              <strong className="pizzaName">
+                {pizza.name}
+                {/* SELECTOR OPTION: */}
+                {/* {fav.includes(pizza.id) ? "♥" : "♡"} */}
+
+                {/* NO SELECTOR OPTION */}
+                {/* {user.favorites.includes(pizza.id) ? "♥" : "♡"} */}
+                <button className="favButton" onClick={toggle}>
+                  {user.favorites.includes(pizza.id) ? "♥" : "♡"}
+                </button>
+              </strong>
+              <div>
+                <img src={`${pizza.image}`} alt="pizza" className="pizzaImg" />
+              </div>
               <li>{pizza.description}</li>
               <li>{pizza.bought} times bought</li>
-              <button onClick={toggle}>
-                {user.favorites.includes(pizza.id) ? "♥" : "♡"}
-              </button>
             </div>
           );
         })}

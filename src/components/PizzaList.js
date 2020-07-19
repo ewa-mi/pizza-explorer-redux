@@ -42,10 +42,16 @@ export default function PizzaList() {
 
   return (
     <div>
-      <h1>Pizza Explorer</h1>
-      <p>
-        Welcome back, <strong>{user.name}</strong>! Your favorite pizzas:
-      </p>
+      <div className="header">
+        <div>
+          <h1 className="appName">PIZZA EXPLORER</h1>
+        </div>
+        <div className="welcomeBack">
+          <p>
+            Welcome back, <strong>{user.name}</strong>! Your favorite pizzas:
+          </p>
+        </div>
+      </div>
       <ul className="pizzasArea">
         {pizzas.map((pizza) => {
           const toggle = () => {

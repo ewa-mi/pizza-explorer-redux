@@ -32,3 +32,24 @@
   background-color: rgb(240, 227, 228);
   padding: 10px;
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.appName {
+  background-color: rgb(12, 12, 12);
+  color: white;
+  border-radius: 5px;
+  width: fit-content;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.welcomeBack {
+  text-align: center;
+}
